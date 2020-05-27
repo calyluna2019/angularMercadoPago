@@ -1,11 +1,11 @@
-<main class="pagina">
+<!-- <main class="pagina">
     <section class="compra-carrito-mercadopago">
       <div class="container">
         <div class="block-heading">
           <h2>Mis Productos:</h2>
           <p>Implementacion de Mercado Pago</p>
         </div>
-        <form action="/checkout" method="post">
+        <form>
           <div class="content">
             <div class="row">
               <div class="col-md-12 col-lg-8">
@@ -54,4 +54,27 @@
         </form>
       </div>
     </section>
-  </main>
+  </main> -->
+  <div class="main">
+    <!-- <form (ngSubmit)="submit()">
+  
+      <input data-checkout="card">
+    </form> -->
+    <form #formContainer [formGroup]="paymentForm" (ngSubmit)="submit()">
+      <p>N&uacute;mero de Tarjeta: <input data-checkout="cardNumber" #ccNumber
+        formControlName="cardNumber" 
+        maxlength="20"
+        (keyup)="creditCardNumberSpacing()" type="tel"/></p>
+      <p>C&oacute;digo de Seguridad: <input data-checkout="securityCode" type="text"/></p>
+      <p>Mes de Expiraci&oacute;n: <input data-checkout="cardExpirationMonth" type="text"/></p>
+      <p>A&ntilde;o de Expiraci&oacute;n: <input data-checkout="cardExpirationYear" type="text"/></p>
+      <p>Titular de la Tarjeta: <input data-checkout="cardholderName" type="text"/></p>
+      <div *ngIf="typesNeeded">
+        <select  id="docType" data-checkout="docType">
+          <option *ngFor="let id of identifications" [value]="id.id"> {{id.name}} </option>
+        </select>
+        <p>N&uacute;mero de Documento: <input data-checkout="docNumber" type="text"/></p>
+      </div>
+      <p><input type="submit" value="Realizar Pago"></p>
+    </form>
+  </div>

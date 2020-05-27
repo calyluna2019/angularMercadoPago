@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularMercadoPago"
+    }
+  },
+  "defaultProject": "angularMercadoPago",
+  "cli": {
+    "analytics": false
+  }
 }
